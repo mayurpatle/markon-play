@@ -106,7 +106,9 @@
               .join(", ");
             return `#list[${items}]#`;
           })
-          .replace(/&nbsp;/g, " "); // Remove non-breaking spaces
+          .replace(/&nbsp;/g, " ") // removing non breaking space 
+          .replace(/<div>/g, "\n")
+          .replace(/<\/div>/g, "");  // removing div 
 
         output.textContent = markonText;
       }
